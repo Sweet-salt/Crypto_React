@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Typography, Row, Col, Statistic } from "antd";
 
 const Head = styled.div`
   width: 100%;
@@ -9,7 +10,7 @@ const Head = styled.div`
 function Header() {
   return (
     <Head>
-      <h1>BitPush</h1>
+      <Typography.Title>Bitpush</Typography.Title>
       <button>Login</button>
       <button>Logout</button>
     </Head>
