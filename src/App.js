@@ -3,6 +3,7 @@ import Home from "./Home";
 import "./styles.css";
 import { Layout, Typography, Space } from "antd";
 import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 import Exchanges from "./components/Exchanges";
 import CurrentPrice from "./components/CurrentPrice";
 import CryptoDetails from "./components/CryptoDetails";
@@ -15,6 +16,7 @@ const Flex = styled.div`
 export default function App() {
   return (
     <div className="App">
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/exchanges" element={<Exchanges />} />
