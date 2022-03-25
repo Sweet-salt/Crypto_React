@@ -9,3 +9,6 @@
 - @ant-design/icons
 - antd
 - react-dom
+- @reduxjs/toolkit
+- millify
+- react-redux
