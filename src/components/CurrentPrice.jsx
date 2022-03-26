@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import millify from "millify";
 import { Link } from "react-router-dom";
 import { Card, Row, Col, Input } from "antd";
@@ -8,19 +8,30 @@ import { useGetCryptosQuery } from "../services/coinApi";
 const CurrentPrice = ({ simplified }) => {
   const count = simplified ? 10 : 100;
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
-  const [coin, setCoin] = useState(cryptosList?.data?.coins);
-  const [search, setSearch] = useState();
+  const [coin, setCoin] = useState([]);
+  const [search, setSearch] = useState("");
 
   console.log(coin);
+  useEffect(() => {
+    setCoin(cryptosList?.data?.coins);
+    const filterCoin = cryptosList?.data?.coins.filter((coin) =>
+      coin.name.toLowerCase().includes(search.toLowerCase())
+    );
+    setCoin(filterCoin);
+  }, [cryptosList, search]);
   if (isFetching) return "Loading...";
+
   return (
     <div>
-      <div>
-        <Input
-          placeholder="Search"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
+      {!simplified && (
+        <div>
+          <Input
+            placeholder="Search"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+      )}
+
       <Row gutter={[32, 32]} className="coin-container">
         {coin
           ? coin.map((data) => {
@@ -34,7 +45,7 @@ const CurrentPrice = ({ simplified }) => {
                     >
                       <p>Price: {`${millify(data.price)} $`}</p>
                       <p>Market Cap: {`${millify(data.marketCap)} $`}</p>
-                      <p>Daily Change: {`${millify(data.change)} $`}</p>
+                      <p>Daily Change: {`${millify(data.change)} %`}</p>
                     </Card>
                   </Link>
                 </Col>

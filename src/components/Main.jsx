@@ -33,11 +33,12 @@ const Main = () => {
         <Typography.Title level={2} className="home-title">
           Top 10 Coin
         </Typography.Title>
-        <Typography.Title level={4} className="show-more">
-          <Link to="/currentprice">Show More</Link>
-        </Typography.Title>
+
+        <CurrentPrice simplified={true} />
       </div>
-      <CurrentPrice simplified={true} />
+      <Typography.Title level={5} className="show-more">
+        <Link to="/currentprice">Show More</Link>
+      </Typography.Title>
       <div>
         <Typography.Title level={2} className="news">
           Latest Coin NEWS
