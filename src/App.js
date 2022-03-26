@@ -21,7 +21,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/exchanges" element={<Exchanges />} />
         <Route path="/currentprice" element={<CurrentPrice />} />
-        <Route path="/cryptodetails/:coinId" element={<CryptoDetails />} />
+        <Route path="/currentprice/:coinId" element={<CryptoDetails />} />
         <Route path="/news" element={<News />} />
       </Routes>
       <Navbar />
