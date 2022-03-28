@@ -8,19 +8,18 @@ import { useGetCryptosQuery } from "../services/coinApi";
 const CurrentPrice = ({ simplified }) => {
   const count = simplified ? 10 : 100;
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
-  const [coin, setCoin] = useState([]);
+  const [cryptos, setCryptos] = useState([]);
   const [search, setSearch] = useState("");
 
-  console.log(coin);
   useEffect(() => {
-    setCoin(cryptosList?.data?.coins);
+    setCryptos(cryptosList?.data?.coins);
     const filterCoin = cryptosList?.data?.coins.filter((coin) =>
       coin.name.toLowerCase().includes(search.toLowerCase())
     );
-    setCoin(filterCoin);
+    setCryptos(filterCoin);
   }, [cryptosList, search]);
-  if (isFetching) return "Loading...";
 
+  if (isFetching) return "Loading...";
   return (
     <div>
       {!simplified && (
@@ -33,11 +32,14 @@ const CurrentPrice = ({ simplified }) => {
       )}
 
       <Row gutter={[32, 32]} className="coin-container">
-        {coin
-          ? coin.map((data) => {
+        {cryptos
+          ? cryptos.map((data, i) => {
+              {
+                console.log(data);
+              }
               return (
-                <Col xs={24} sm={12} lg={6} className="coin" key={data.id}>
-                  <Link to={`/currentprice/${data.id}`}>
+                <Col xs={24} sm={12} lg={6} className="coin" key={i}>
+                  <Link to={`/currentprice/${data.uuid}`}>
                     <Card
                       title={`${data.rank}. ${data.name}`}
                       // extra={<img className="coin-img" src={data.iconUrl} />}

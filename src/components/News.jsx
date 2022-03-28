@@ -18,7 +18,6 @@ const News = ({ simplified }) => {
     newsCategory,
     count: simplified ? 3 : 30
   });
-  console.log(CryptoNews);
   if (!CryptoNews?.value) return "Loading...";
   return (
     <Row gutter={[24, 24]}>

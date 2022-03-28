@@ -8,7 +8,7 @@ import News from "../components/News";
 const Main = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStates = data?.data?.stats;
-  console.log(globalStates);
+
   if (isFetching) return "Loading...";
   return (
     <>
