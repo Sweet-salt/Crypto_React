@@ -4,7 +4,7 @@ import { Typography, Row, Col, Statistic } from "antd";
 const Head = styled.div`
   width: 100%;
   height: 100px;
-  background-color: orange;
+  background-color: #262626;
 `;
 
 function Header() {
@@ -12,7 +12,7 @@ function Header() {
     <Head>
       <Typography.Title>Bitpush</Typography.Title>
       <button>Login</button>
-      <button>Logout</button>
+      <button>Sign Up</button>
     </Head>
   );
 }
