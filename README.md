@@ -13,3 +13,4 @@
 - @reduxjs/toolkit
 - millify
 - react-redux
+- react-chartjs-2
