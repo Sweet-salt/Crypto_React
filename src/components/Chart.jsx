@@ -1,8 +1,9 @@
+import { Chart as ChartJS, registerables } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { Col, Row, Typography } from "antd";
-import { Chart as ChartJS } from "chart.js/auto";
-import { Chart } from "react-chartjs-2";
 const { Title } = Typography;
+
+ChartJS.register(...registerables);
 
 const CoinChart = ({ coinHistory, currentPrice, coinName }) => {
   const coinPrice = [];
@@ -26,15 +27,11 @@ const CoinChart = ({ coinHistory, currentPrice, coinName }) => {
       }
     ]
   };
-  const options = {
+  var options = {
     scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true
-          }
-        }
-      ]
+      y: {
+        min: 0
+      }
     }
   };
   return (
@@ -44,10 +41,10 @@ const CoinChart = ({ coinHistory, currentPrice, coinName }) => {
           {coinName} Chart
         </Title>
         <Col className="price">
-          <Title level={6} className="price-change">
+          <Title level={4} className="price-change">
             {coinHistory?.data?.change}%
           </Title>
-          <Title level={6} className="current-price">
+          <Title level={4} className="current-price">
             Current {coinName} Price: {currentPrice} $
           </Title>
         </Col>

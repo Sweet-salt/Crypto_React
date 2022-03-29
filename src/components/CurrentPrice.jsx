@@ -34,9 +34,6 @@ const CurrentPrice = ({ simplified }) => {
       <Row gutter={[32, 32]} className="coin-container">
         {cryptos
           ? cryptos.map((data, i) => {
-              {
-                console.log(data);
-              }
               return (
                 <Col xs={24} sm={12} lg={6} className="coin" key={i}>
                   <Link to={`/currentprice/${data.uuid}`}>

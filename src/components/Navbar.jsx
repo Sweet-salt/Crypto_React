@@ -18,8 +18,8 @@ const Container = styled.div`
 `;
 const Navbar = () => {
   return (
-    <Container>
-      <Menu theme="light">
+    <Menu theme="light">
+      <Container>
         <Flex>
           <Menu.Item icon={<HomeFilled />}>
             <Link to="/">Home</Link>
@@ -34,8 +34,8 @@ const Navbar = () => {
             <Link to="/news">NEWS</Link>
           </Menu.Item>
         </Flex>
-      </Menu>
-    </Container>
+      </Container>
+    </Menu>
   );
 };
 
