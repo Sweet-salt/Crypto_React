@@ -8,7 +8,7 @@ ChartJS.register(...registerables);
 const CoinChart = ({ coinHistory, currentPrice, coinName }) => {
   const coinPrice = [];
   const coinTimestamp = [];
-
+  console.log(coinHistory);
   for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
     coinPrice.push(coinHistory.data.history[i].price);
     coinTimestamp.push(

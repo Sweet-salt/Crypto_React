@@ -15,7 +15,7 @@ const { Option } = Select;
 
 const CryptoDetails = () => {
   const { coinId } = useParams();
-  const [timePeriod, setTimePeriod] = useState("24h");
+  const [timePeriod, setTimePeriod] = useState("1y");
   const { data, isFetching } = useGetCryptoDetailQuery(coinId);
   const { data: coinHistory } = useGetCryptoHistoryQuery({
     coinId,
@@ -25,7 +25,7 @@ const CryptoDetails = () => {
 
   if (isFetching) return "Loading...";
 
-  const time = ["3h", "24h", "7d", "30d", "6m", "1y", "3y", "5y"];
+  const time = ["3h", "24h", "7d", "30d", "3m", "1y", "3y", "5y"];
 
   const supply = () => {
     if (cryptoDetails.supply.total === null) {
@@ -80,7 +80,7 @@ const CryptoDetails = () => {
         <p>{cryptoDetails.name} Now Price </p>
       </Col>
       <Select
-        defaultValue="7d"
+        defaultValue="1y"
         className="timePeriod"
         placeholder="Select Time"
         onChange={(value) => setTimePeriod(value)}
