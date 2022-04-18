@@ -14,3 +14,6 @@
 - millify
 - react-redux
 - react-chartjs-2
+- express
+- body-parser
+- mongoose
